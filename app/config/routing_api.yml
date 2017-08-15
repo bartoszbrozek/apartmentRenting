@@ -1,0 +1,3 @@
+apartment:
+    type: rest
+    resource: AppBundle\Controller\ApartmentController
