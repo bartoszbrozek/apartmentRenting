@@ -96,11 +96,11 @@ class ApartmentController extends FOSRestController implements ClassResourceInte
      * Edits apartment
      *
      * @param Request $request
+     * @param int $id
      * @return View|\Symfony\Component\Form\Form
      */
     public function putAction(Request $request, int $id)
     {
-
         /**
          * @var $apartment Apartment
          */
@@ -156,14 +156,8 @@ class ApartmentController extends FOSRestController implements ClassResourceInte
             $em->remove($apartment);
             $em->flush();
         } catch (Exception $ex) {
-            throw new HttpExceptionException(500, "error: $ex");
+            throw new HttpException(500, "error: $ex");
         }
-
-    }
-
-    private function processForm(Request $request, $form)
-    {
-        #$data = json_decode($request->getContent(), true);
 
     }
 }
